@@ -1,8 +1,7 @@
 package no.toreb.controller;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetails;
+import lombok.RequiredArgsConstructor;
+import org.springframework.boot.info.BuildProperties;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,18 +9,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.security.Principal;
 
 @Controller
+@RequiredArgsConstructor
 public class HomeController {
 
-    private final String applicationName;
-
-    public HomeController(@Value("${spring.application.name}") final String applicationName) {
-        this.applicationName = applicationName;
-    }
+    private final BuildProperties buildProperties;
 
     @GetMapping("/")
     public String index(final Model model, final Principal principal) {
-        model.addAttribute("applicationName", applicationName);
         model.addAttribute("username", principal.getName());
+        model.addAttribute("buildProperties", buildProperties);
         return "index";
     }
 }
