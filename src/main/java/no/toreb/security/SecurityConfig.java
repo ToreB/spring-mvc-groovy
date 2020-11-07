@@ -17,6 +17,8 @@ import java.util.List;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    private static final String REMEMBER_ME_KEY = "437dc017-7513-4f23-985e-aa49b86d013b";
+
     private final String user;
     private final String password;
     private final List<String> roles;
@@ -35,10 +37,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         security.csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/login*").permitAll()
-                .antMatchers("/public/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
+                .and()
+                .rememberMe().key(REMEMBER_ME_KEY).tokenValiditySeconds(3600)
+                .and()
+                .logout()
                 .and()
                 .httpBasic();
     }

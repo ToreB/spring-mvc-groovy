@@ -8,5 +8,8 @@ html(lang:'en') {
     body {
         h1("$applicationName")
         p("Welcome, $username!")
+        p {
+            a(href: "logout", "logout")
+        }
     }
 }
