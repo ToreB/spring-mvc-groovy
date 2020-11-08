@@ -34,3 +34,25 @@ footer {
 .boldText {
     font-weight: bold;
 }
+
+.centered {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#errorContainer {
+    background-color: red;
+    height: 50px;
+    font-weight: bold;
+    color: white;
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+#errorContainer > * {
+    display: inline-block;
+}

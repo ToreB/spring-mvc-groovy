@@ -1,4 +1,4 @@
-package no.toreb.security;
+package no.toreb.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

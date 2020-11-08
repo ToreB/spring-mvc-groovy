@@ -12,6 +12,10 @@ configurations {
     compileOnly {
         extendsFrom annotationProcessor
     }
+
+    testCompileOnly {
+        extendsFrom annotationProcessor
+    }
 }
 
 repositories {
@@ -23,16 +27,18 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-groovy-templates'
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
     implementation 'org.flywaydb:flyway-core'
 
-    runtimeOnly 'com.h2database:h2'
+    runtime 'org.hsqldb:hsqldb'
+    testImplementation 'org.hsqldb:hsqldb'
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
     testImplementation 'org.springframework.security:spring-security-test'
+    testImplementation 'org.flywaydb.flyway-test-extensions:flyway-spring-test:6.4.0'
 
-    compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
     developmentOnly("org.springframework.boot:spring-boot-devtools")

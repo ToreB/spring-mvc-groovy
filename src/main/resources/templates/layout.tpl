@@ -4,12 +4,13 @@ modelTypes = {
     BuildProperties buildProperties
 }
 
-yieldUnescaped '<!DOCTYPE html>'
-html(lang:'en') {
+yieldUnescaped "<!DOCTYPE html>"
+html(lang:"en") {
     head {
         meta('http-equiv':'"Content-Type" content="text/html; charset=utf-8"')
         title(title)
         link(rel: "stylesheet", type: "text/css", href: "/css/style.css")
+        script(src: "/js/scripts.js") {}
     }
     body {
         header {
@@ -17,6 +18,13 @@ html(lang:'en') {
             p(class: "headerItem", "&nbsp;|&nbsp;")
             a(class: "headerItem", href: "logout", "Logout")
         }
+
+        if(errorMessage) {
+            div(id: "errorContainer") {
+                p(id: "errorMessage", errorMessage)
+            }
+        }
+
         div(id: "contents") { bodyContents() }
         footer {
             p { yield "Application name: "; span(class: "boldText", "$buildProperties.name") }
