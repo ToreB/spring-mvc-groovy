@@ -12,8 +12,12 @@ html(lang:'en') {
         link(rel: "stylesheet", type: "text/css", href: "/css/style.css")
     }
     body {
-        bodyContents()
-        hr()
+        header {
+            p(class: "headerItem") { span(class: "boldText", "$username") }
+            p(class: "headerItem", "&nbsp;|&nbsp;")
+            a(class: "headerItem", href: "logout", "Logout")
+        }
+        div(id: "contents") { bodyContents() }
         footer {
             p { yield "Application name: "; span(class: "boldText", "$buildProperties.name") }
             p { yield "Application version: "; span(class: "boldText", "$buildProperties.version") }

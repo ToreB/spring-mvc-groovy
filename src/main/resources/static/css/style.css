@@ -1,19 +1,34 @@
 body {
-    text-align: center;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     margin: 0;
 }
 
+#contents {
+    text-align: center;
+}
+
+header {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: small;
+    border-bottom: solid 1px black;
+    text-align: right;
+}
+
+.headerItem {
+    display: inline-block;
+}
+
 footer {
     margin-top: auto;
     padding-left: 10px;
     padding-right: 10px;
-    background: lightgray;
     display: flex;
     justify-content: space-between;
     font-size: small;
+    border-top: solid 1px black;
 }
 
 .boldText {
