@@ -1,6 +1,6 @@
 import org.springframework.boot.info.BuildProperties
 
-modelTypes {
+modelTypes = {
     BuildProperties buildProperties
 }
 
@@ -15,9 +15,9 @@ html(lang:'en') {
         bodyContents()
         hr()
         footer {
-            p("Application name: $buildProperties.name")
-            p("Application version: $buildProperties.version")
-            p("Build time: $buildProperties.time")
+            p { yield "Application name: "; span(class: "boldText", "$buildProperties.name") }
+            p { yield "Application version: "; span(class: "boldText", "$buildProperties.version") }
+            p { yield "Build time: "; span(class: "boldText", "$buildProperties.time") }
         }
     }
 }
