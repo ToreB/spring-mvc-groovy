@@ -120,6 +120,11 @@ public class TodoController extends BaseController {
 
     @GetMapping("/{todoId}/delete")
     public String delete(final Model model, @PathVariable("todoId") final UUID todoId) {
+        final var optTodo = todoService.get(todoId);
+        if (optTodo.isEmpty()) {
+            return setErrorAndRedirectToRootView("Todo with id " + todoId + " does not exist.");
+        }
+
         todoService.delete(todoId);
         return "redirect:/todos";
     }
