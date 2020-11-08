@@ -4,7 +4,7 @@ modelTypes = {
     Todo todo;
 }
 
-layout "layout.tpl", true, title: "$todo.name", bodyContents: contents {
+layout "layout.tpl", true, title: todo.name, bodyContents: contents {
     h1("$todo.name Details")
 
     nav {

@@ -4,8 +4,9 @@ modelTypes = {
     List<Todo> todos
 }
 
-layout "layout.tpl", true, title: "Todo List", bodyContents: contents {
-    h1("Todo List")
+final def title = "Todo List";
+layout "layout.tpl", true, title: title, bodyContents: contents {
+    h1(title)
 
     div {
         a(href: "/todos/add", "Add new Todo")
@@ -27,11 +28,11 @@ layout "layout.tpl", true, title: "Todo List", bodyContents: contents {
         todos.each { final todo ->
             tr {
                 td { a(href:"/todos/$todo.id", "$todo.id") }
-                td("$todo.name")
-                td("$todo.description")
-                td("$todo.completed")
-                td("$todo.createdAt")
-                td("$todo.updatedAt")
+                td(todo.name)
+                td(todo.description)
+                td(todo.completed)
+                td(todo.createdAt)
+                td(todo.updatedAt)
                 td { a(href: "/todos/$todo.id/edit", "Edit") }
                 td { a(href: "/todos/$todo.id/delete", onclick: "return confirmDelete('$todo.name')", "Delete") }
             }

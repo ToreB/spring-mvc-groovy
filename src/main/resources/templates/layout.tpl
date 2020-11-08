@@ -14,7 +14,7 @@ html(lang:"en") {
     }
     body {
         header {
-            p(class: "headerItem") { span(class: "boldText", "$username") }
+            p(class: "headerItem") { span(class: "boldText", username) }
             p(class: "headerItem", "&nbsp;|&nbsp;")
             a(class: "headerItem", href: "logout", "Logout")
         }
@@ -27,9 +27,9 @@ html(lang:"en") {
 
         div(id: "contents") { bodyContents() }
         footer {
-            p { yield "Application name: "; span(class: "boldText", "$buildProperties.name") }
-            p { yield "Application version: "; span(class: "boldText", "$buildProperties.version") }
-            p { yield "Build time: "; span(class: "boldText", "$buildProperties.time") }
+            p { yield "Application name: "; span(class: "boldText", buildProperties.name) }
+            p { yield "Application version: "; span(class: "boldText", buildProperties.version) }
+            p { yield "Build time: "; span(class: "boldText", buildProperties.time) }
         }
     }
 }
